@@ -25,11 +25,10 @@ public class User {
         return incomeThreeYears > 3 * g || incomeLastYear > 1.5 * g;
     }
 
-    public void checkDagsatsen() {
+    public double checkDagsatsen(double dagsatsen) {
         //Om brukeren er innvilget beregnes dagsatsen
         if (testGranted()) {
             //sjekker inntekten i de siste tre årene er mindre enn 6G og er større enn inntekten ifjor
-            double dagsatsen;
             if (avgIncome < 6 * g && avgIncome > incomeLastYear) {
                 dagsatsen = avgIncome / 260;
                 JOptionPane.showMessageDialog(null, "Du kan søke om Dagpenger \n" +
@@ -55,5 +54,6 @@ public class User {
         else {
             JOptionPane.showMessageDialog(null, "Du kan IKKE søke om Dagpenger dessverre");
         }
+        return dagsatsen;
     }
 }

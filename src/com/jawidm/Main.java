@@ -37,6 +37,6 @@ public class Main {
 
         //lager ny object av klassen User og setter verdier fått via input inn i. Casting utført String til double
         User newUser = new User(Double.parseDouble(incomeLastYear), Double.parseDouble(incomeTwoYearsAgo), Double.parseDouble(incomeThreeYearsAgo));
-        newUser.checkDagsatsen();
+        newUser.checkDagsatsen(0);
     }
 }
