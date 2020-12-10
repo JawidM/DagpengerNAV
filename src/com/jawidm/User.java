@@ -6,19 +6,15 @@ import java.util.Date;
 public class User {
     //brukte public på incomeLastYear og avgIncome til å få tilgang fra UserTest klassen
     public final double incomeLastYear;
-    private final double incomeTwoYearsAgo;
-    private final double incomeThreeYearsAgo;
     private final double incomeThreeYears;
     public final double avgIncome;
     //Grunnbeløpet g/(G) per 1. mai 2020 er kr 101 351.
     private final double g = 101351;
-    //for å vise datoen til slutt bare :)
+    //for å vise datoen til slutt :)
     Date timeNow = new Date();
 
     public User(double incomeLastYear, double incomeTwoYearsAgo, double incomeThreeYearsAgo) {
         this.incomeLastYear = incomeLastYear;
-        this.incomeTwoYearsAgo = incomeTwoYearsAgo;
-        this.incomeThreeYearsAgo = incomeThreeYearsAgo;
         this.incomeThreeYears = incomeLastYear + incomeTwoYearsAgo + incomeThreeYearsAgo;
         this.avgIncome = incomeThreeYears/3;
     }
@@ -29,10 +25,11 @@ public class User {
         return incomeThreeYears > 3 * g || incomeLastYear > 1.5 * g;
     }
 
-    public double checkDagsatsen(double dagsatsen) {
+    public void checkDagsatsen() {
         //Om brukeren er innvilget beregnes dagsatsen
         if (testGranted()) {
             //sjekker inntekten i de siste tre årene er mindre enn 6G og er større enn inntekten ifjor
+            double dagsatsen;
             if (avgIncome < 6 * g && avgIncome > incomeLastYear) {
                 dagsatsen = avgIncome / 260;
                 JOptionPane.showMessageDialog(null, "Du kan søke om Dagpenger \n" +
@@ -58,6 +55,5 @@ public class User {
         else {
             JOptionPane.showMessageDialog(null, "Du kan IKKE søke om Dagpenger dessverre");
         }
-        return dagsatsen;
     }
 }

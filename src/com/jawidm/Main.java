@@ -34,17 +34,9 @@ public class Main {
             incomeThreeYearsAgo = JOptionPane.showInputDialog(null, " Ugyldig tegn! Kun tall er tillatt \n " +
                     "Skriv inn inntekten i 2017: ");
         }
-        //lager ny object av klassen User og setter verdier vha constructoren
-        //UserMin newUser = new UserMin(Double.parseDouble(incomeLastYear), incomeThreeYears,incomeThreeYears/3 );
-
-        //kaller metoden testGranted i UserMin klassen
-        //newUser.testGranted();
-
-        //Scanner klassen kunne blitt brukt også for å lage objekter, men jeg foretrukket å bruke JOptionPane
-        //Scanner scanner = new Scanner (System.in);
 
         //lager ny object av klassen User og setter verdier fått via input inn i. Casting utført String til double
         User newUser = new User(Double.parseDouble(incomeLastYear), Double.parseDouble(incomeTwoYearsAgo), Double.parseDouble(incomeThreeYearsAgo));
-        newUser.checkDagsatsen(0);
+        newUser.checkDagsatsen();
     }
 }
